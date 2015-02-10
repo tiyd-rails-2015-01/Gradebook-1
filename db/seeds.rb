@@ -11,17 +11,6 @@
    Teacher.create(name:"Tom Teacher", email:"TomTeacher@higher.edu", password:"TomTeacher")
    Teacher.create(name:"Bob Builder", email:"BobBuilder@higher.edu", password:"BobBuilder")
 
-   Grade.create(student_email: "sara@sara.com", assignment_name: "homework 1", due_on: "2015-01-02", score: 98)
-   Grade.create(student_email: "sara@sara.com", assignment_name: "homework 2", due_on: "2015-01-03", score: 95)
-   Grade.create(student_email: "emily@emily.com", assignment_name: "homework 1", due_on: "2015-01-02", score: 85)
-   Grade.create(student_email: "emily@emily.com", assignment_name: "homework 2", due_on: "2015-01-03", score: 87)
-   Grade.create(student_email: "john@john.com", assignment_name: "homework 1", due_on: "2015-01-02", score: 60)
-   Grade.create(student_email: "john@john.com", assignment_name: "homework 2", due_on: "2015-01-03", score: 63)
-   Grade.create(student_email: "mark@mark.com", assignment_name: "homework 1", due_on: "2015-01-02", score: 96)
-   Grade.create(student_email: "mark@mark.com", assignment_name: "homework 2", due_on: "2015-01-03", score: 99)
-   Grade.create(student_email: "stacy@stacy.com", assignment_name: "homework 1", due_on: "2015-01-02", score: 86)
-   Grade.create(student_email: "stacy@stacy.com", assignment_name: "homework 2", due_on: "2015-01-03", score: 82)
-
    Student.create(name:"sara", student_email:"sara@sara.com", password:"sara", teacher_id: 1)
    Student.create(name:"emily", student_email:"emily@emily.com", password:"emily", teacher_id: 1)
    Student.create(name:"john", student_email:"john@john.com", password:"john", teacher_id: 2)
@@ -35,3 +24,9 @@
    Parent.create(name:"micah", email: "micah@micah.com", password: "micah", child_name: "james")
    Parent.create(name:"Sandy", email: "Sandy@Sandy.com", password: "Sandy", child_name: "mark")
    Parent.create(name:"Joey", email: "Joey@Joey.com", password: "Joey", child_name: "stacy")
+
+   Achievement.create(name: "Make Powerpoint", point_value: 500)
+   Achievement.create(name: "Give speech", point_value: 500)
+   Achievement.create(name: "Pass Exam", point_value: 1000)
+   Achievement.create(name: "Finish Thesis", point_value: 1000)
+   Achievement.create(name: "Group Project", point_value: 2000)

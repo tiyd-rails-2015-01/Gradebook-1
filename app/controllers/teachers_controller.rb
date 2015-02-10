@@ -1,19 +1,33 @@
 class TeachersController < ApplicationController
   before_action :check_logged_in
 
-
   def index
     @teachers = Teacher.all
-    @grades = Grade.all
+    @achievements = Achievement.all
+    # @achievements = Achievement.get_assignments_for_student_email( student.student_email )
+    @teachers_students = Student.get_all_children_for_teacher_id( session[:teacher_id] )
   end
 
   def new
     @teacher = Teacher.new
-    @grade = Grade.new
+    @achievement = Achievement.new
+  end
+
+  def edit_achievements
+    @student = Student.find(params[:id])
+    @achievements = Achievement.all
+  end
+
+  def update_achievements
+    @student = Student.find(params[:id])
+    @student.achievements = []
+    params[:achievements].keys.each do |achievement_id|
+      @student.achievements << Achievement.find_by_id(achievement_id)
+    end
+    redirect_to edit_achievements_student_path
   end
 
   def edit
-
   end
 
   def create

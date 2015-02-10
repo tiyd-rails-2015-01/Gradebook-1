@@ -1,12 +1,24 @@
 class Student < ActiveRecord::Base
   has_secure_password
 
-  has_many :grades
   has_many :parents
-
+  has_and_belongs_to_many :achievements
   belongs_to :teacher
 
-  def self.get_all_children_for_teacher_id( teacher_id )
+  def self.get_all_children_for_student_id(student_id)
+    students_children = []
+
+    self.all.each do |student|
+      if student.id == student_id
+        students_children << student
+      end
+    end
+
+    return students_children
+  end
+
+
+  def self.get_all_children_for_teacher_id(teacher_id)
     teachers_children = []
 
     self.all.each do |student|
@@ -37,4 +49,15 @@ class Student < ActiveRecord::Base
     end
     return pair
   end
+
+  # def get_all_children_for_student_id(student_id)
+  #   achievements = []
+  #   self.all.each do |achievement|
+  #     if achievement.student_id == student_id
+  #       achievement << achievement
+  #     end
+  #   end
+  #   return achievements
+  # end
+
 end
